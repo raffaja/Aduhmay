@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment by RAFFSTR</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #555;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .payment-info {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: #fff;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PAYMENT BY RAFFSTR</h1>
+
+    <div class="payment-info">
+      <p><b>DANA</b><br>083867468118<br>N/A: Lip</p>
+      <p><b>GOPAY</b><br>083893476377<br>N/A: RAFFSTR</p>
+    </div>
+
+    <form id="paymentForm">
+      <label>Nomor Telepon Anda:</label>
+      <input type="text" id="phone" placeholder="Masukkan nomor telepon" required>
+
+      <label>Nominal Uang:</label>
+      <input type="number" id="amount" placeholder="Masukkan nominal" required>
+
+      <button type="submit">Kirim Pembayaran</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("paymentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let phone = document.getElementById("phone").value;
+      let amount = document.getElementById("amount").value;
+
+      // Arahkan ke WhatsApp untuk konfirmasi
+      let message = `Halo RAFFSTR, saya sudah melakukan pembayaran.\nNomor: ${phone}\nNominal: Rp${amount}`;
+      let waUrl = `https://wa.me/6283891571261?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank");
+    });
+  </script>
+</body>
+</html>
